@@ -1,8 +1,9 @@
-body{
-    background-color: black;
+body { 
+    background-image: url(./img/mynd.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .c{
     text-align: center;
-    color: white;
 }
