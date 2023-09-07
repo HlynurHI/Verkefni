@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Pantanir</h1>
+    <p>
+      Pantaðu borð og mættu til okkar eða pantaðu mat sem við sendum þér eða þú
+      sækir.
+    </p>
+    <form>
+      <h3>Panta borð</h3>
+      <fieldset>
+        <label for="timi">Hvenær viltu koma?</label>
+        <input type="datetime-local" required /><br>
+        <label for="magn">Hver mörg?</label>
+        <input type="number" min="1" max="10" required /><br>
+        <label for="athugasemd">Viltu taka eitthvað fram?</label>
+        <input type="text"/><br>
+      </fieldset>
+      <h3>Panta mat</h3>
+      <fieldset>
+        <label for="rettur">Réttur</label>
+        <select required><br>
+          <option>Lasagna</option>
+          <option>Sveppa risotto</option>
+          <option>Sveppa risotto</option>
+          <option>Quesadilla</option>
+          <option>Falafel með hummus</option>
+        </select>
+        <label for="heimilisfang">Heimilisfang?</label>
+        <input type="text" required /><br>
+      </fieldset>
+      <h3>Þínar upplýsingar</h3>
+      <fieldset>
+        <label for="nafn">Nafn</label>
+        <input type="text" required /><br>
+        <label for="netfang">Netfang</label>
+        <input type="email" placeholder="****@****.com" required /><br>
+        <label for="simi">Sími</label>
+        <input type="tel" placeholder="123-4567" required /><br>
+      </fieldset>
+      <h3>Samþykja og panta</h3>
+      <fieldset>
+        <label for="skilmalar">Ég samþykki skilmála Veitingastaðsins</label>
+        <input type="checkbox" required /><br>
+      </fieldset>
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+  <footer>
+    <h1>
+      Fótur
+    </h1>
+    <h2>Opnunartími</h2>
+    <dl>
+        <dt>Mánudaga til fimmtudaga</dt>
+        <dd>09:00–18:00</dd>
+        <dt>Föstudaga</dt>
+        <dd>10:00–22:00</dd>
+        <dt>Laugardaga</dt>
+        <dd>11:00–22:00</dd>
+        <dt>Sunnudaga</dt>
+        <dd>Lokað</dd>
+      </dl>
+    <h2>Hér erum við</h2>
+    <p>
+      Veitingastaðurinn ehf. Aðalgata 10 100 Reykjavík Sími 333-4567
+      veitingastadur@example.org
+    </p>
+    <h2>Hlekkir</h2>
+    <h3>Forsíða</h3>
+    <a href="../index.html">Aftur á forsíðu</a>
+    <h3>Um okkur</h3>
+    <a href="./um.html">Lesa meira um okkur</a>
+    <h3>Matseðill</h3>
+    <a href="./sidur/matsedill.html">Skoða matseðilinn</a>
+  </footer>
+  
+</html>
