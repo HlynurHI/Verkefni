@@ -1,0 +1,112 @@
+/* Setjum inn „reset“ sem fjarlægir margin og padding af öllu */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Reiknum stærð á öllum boxum sem border-box */
+  html {
+    box-sizing: border-box;
+  }
+  /* og látum erfast á allt */
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  /* hjálpar class sem felur sjónrænt en skjálesarar lesa */
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #ffe7ae;
+  }
+
+
+.container {
+    display: flex;
+}
+
+.section {
+    flex: 1; 
+    margin: 5%;
+} 
+
+nav {
+    background-color: #333;
+  }
+  
+  .menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffe7ae;
+    color: #2f0505;
+  }
+  
+  .menu li {
+    padding: 10px;
+  }
+  
+  a {
+    text-decoration: underline;
+    color: #2f0505;
+  }
+  
+  hr{
+    height: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 2%;
+    background-color: #ffe7ae;
+  }
+  
+
+  header{
+    text-align: center;
+    background-color: #2f0505;
+    color: #ffe7ae;
+    padding: 10px;
+  }
+
+  footer{
+    text-align: center;
+    background-color: #2f0505;
+    color: #ffe7ae;
+    padding: 10px;
+  }
+
+  .margin-L{
+    margin-left: 5%;
+  }
+  .margin-B{
+    margin-bottom: 5%;
+  }
+  .margin-A{
+    margin: 5%;
+  }
+
+  .c{
+    display: flex;
+    justify-content: center;
+  }
+
+  img{
+    max-width: 50%;
+  }
+
+  .border{
+    border: 5px;
+    border-color: ffe7ae;
+  }
+  

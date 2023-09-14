@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pöntun</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <header>
+    <h1>Pantanir</h1>
+    <p>
+      Pantaðu borð og mættu til okkar eða pantaðu mat sem við sendum þér eða þú
+      sækir.
+    </p>
+  </header>
+  <nav>
+    <ul class="menu">
+      <li><a href="../index.html">Forsíða</a></li>
+      <li><a href="./um.html">Um veitingastaðinn</a></li>
+      <li><a href="./matsedill.html">Matseðill</a></li>
+      <li>Pöntunarsíða</li>
+    </ul>
+  </nav>
+  <body>
+    <form>
+      <div class="container">
+        <div class="section">
+          <h3>Panta borð</h3>
+          <fieldset>
+            <label for="timi">Hvenær viltu koma?</label>
+            <input type="datetime-local" required /><br />
+            <label for="magn">Hver mörg?</label>
+            <input type="number" min="1" max="10" required /><br />
+            <label for="athugasemd">Viltu taka eitthvað fram?</label>
+            <input type="text" /><br />
+          </fieldset>
+        </div>
+        <div class="section">
+          <h3>Panta mat</h3>
+          <fieldset>
+            <label for="rettur">Réttur</label>
+            <select required>
+              <br />
+              <option>Lasagna</option>
+              <option>Sveppa risotto</option>
+              <option>Sveppa risotto</option>
+              <option>Quesadilla</option>
+              <option>Falafel með hummus</option>
+            </select>
+            <label for="heimilisfang">Heimilisfang?</label>
+            <input type="text" required /><br />
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="section">
+          <h3>Þínar upplýsingar</h3>
+          <fieldset>
+            <label for="nafn">Nafn</label>
+            <input type="text" required /><br />
+            <label for="netfang">Netfang</label>
+            <input type="email" placeholder="****@****.com" required /><br />
+            <label for="simi">Sími</label>
+            <input type="tel" placeholder="123-4567" required /><br />
+          </fieldset>
+        </div>
+        <div class="section">
+          <h3>Samþykja og panta</h3>
+          <fieldset>
+            <label for="skilmalar">Ég samþykki skilmála Veitingastaðsins</label>
+            <input type="checkbox" required /><br />
+          </fieldset>
+          <input type="submit" value="Submit" />
+        </div>
+      </div>
+    </form>
+  </body>
+  <footer>
+    <h3>Opnunartími</h3>
+    <br />
+    <dl>
+      <dt><strong>Mánudaga til fimmtudaga</strong></dt>
+      <dd>09:00–18:00</dd>
+      <br />
+      <dt><strong>Föstudaga</strong></dt>
+      <dd>10:00–22:00</dd>
+      <br />
+      <dt><strong>Laugardaga</strong></dt>
+      <dd>11:00–22:00</dd>
+      <br />
+      <dt><strong>Sunnudaga</strong></dt>
+      <dd>Lokað</dd>
+    </dl>
+
+    <br />
+
+    <h2>Hér erum við</h2>
+    <br />
+    <p>
+      Veitingastaðurinn ehf. Aðalgata 10 100 Reykjavík Sími 333-4567
+      veitingastadur@example.org
+    </p>
+  </footer>
+</html>
