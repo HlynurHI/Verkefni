@@ -47,8 +47,12 @@ html {
   --font-base-body-px: 16px;
   --spacing: 1rem;
 
+  /* Bil á milli „stærri“ eininga (header, efnisbox, footer) */
+  --vertical-space: calc(var(--gutter));
+
   /* Hámarksbreidd á efni */
-  --max-width: 900px;
+  --max-width: 1400px;
+  --width-offset: calc(100% - (2 * var(--offset)));
 
   /* Border breiddir */
   --border-small: 1px;
@@ -61,15 +65,20 @@ html {
   --color-dark: #2f0505;
   --color-light: #fff9ee;
 
-  --color-primary: #f0f0f8;
-  --color-header: #fff;
-  --color-text: #000;
-  --color-border: #ccc;
+  /* Grid stillingar */
+  --columns: 12;
+  --gutter: 30px;
+  --offset: 20px;
 
   /* Letur stillingar */
   --font-base-size: 1rem;
   --font-family-base: 'Noto Sans Display', Helvetica, Arial, sans-serif;
   --font-family-heading: 'Lora', Georgia, serif;
+
+  /* Transitions */
+  --transition-time-short: 300ms;
+  --transition-time-long: 600ms;
+  --transition-timing-function: ease-in-out;
 }
 
 /* Almennt */
@@ -111,156 +120,453 @@ img {
   width: 1px;
 }
 
-/* Layout */
+@media screen and (max-width: 450px){
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing);
 
-  min-height: 100vh;
-}
-
-/** Haus **/
-
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing);
-
-  border-bottom: var(--border-large) solid var(--color-gold);
-
-  background-color: var(--color-dark);
-  color: var(--color-gold-light);
-}
-
-.header header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/** Valmynd **/
-
-.navigation {
-  padding: var(--spacing);
-  width: 100%;
-
-  background-color: var(--color-light);
-  color: var(--color-dark);
-}
-
-.navigation ul {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing);
-
-  width: 100%;
-
-  list-style: none;
-}
-
-/** Meginmál **/
-
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing);
-
-  margin: 0 auto;
-  padding-left: var(--spacing);
-  padding-right: var(--spacing);
-  width: 100%;
-  max-width: var(--max-width);
-}
-
-/** Fótur **/
-
-.footer {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing);
-
-  padding: var(--spacing);
-  border-top: var(--border-large) solid var(--color-gold);
-
-  background-color: var(--color-dark);
-  color: var(--color-gold-light);
-
-  text-align: center;
-}
-
-.footer ul {
-  list-style: none;
-}
-
-/* Box! */
-
-.boxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: calc(var(--spacing) * 2) var(--spacing);
-
-  margin-bottom: calc(var(--spacing) * 2);
-  width: 100%;
-}
-
-.boxes .box {
-  display: flex;
-  flex-direction: column;
-
-  gap: var(--spacing);
-
-  padding: calc(var(--spacing) * 0.5);
-  width: calc(50% - var(--spacing) * 0.5);
-  min-height: 100px;
-
-  color: var(--color-dark);
-  background-color: var(--color-gold-light);
-  border-radius: 5px;
-}
-
-.boxes .box .title {
-  margin-bottom: calc(var(--spacing) * 0.5);
-  border-bottom: var(--border-small) solid var(--color-dark);
-}
-
-.boxes .box .content {
-  flex: 1;
-}
-
-.boxes .box img {
-
-  max-height: 400px;
-
-  object-fit: cover;
-  object-position: top center;
-}
-
-.link {
-  margin-top: calc(var(--spacing) * 0.5);
-
-  background-color: var(--color-dark);
-  color: var(--color-light);
-  border: 2px solid #2f0505;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  text-decoration: none;
-  border-radius: 10px;
-
-}
-
-.link:hover{
-  background-color: var(--color-gold);
-  color: var(--color-dark);
-  border-color: var(--color-dark);
+/** Button og virkni **/
+  .link {
+    background-color: var(--color-dark);
+    color: var(--color-gold-light);
+    border: 2px solid #2f0505;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    text-decoration: none;
+    border-radius: 10px;
+  }
   
+  .link:hover {
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    border-color: var(--color-dark);
+  }
+
+  
+  /* Layout */
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+  }
+
+  /** Haus **/
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing);
+
+    background-color: var(--color-dark);
+    color: var(--color-gold-light);
+  }
+
+  .header header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /** Valmynd **/
+
+  .navigation {
+    padding: var(--spacing);
+    width: 100%;
+
+    background-color: var(--color-light);
+    color: var(--color-dark);
+  }
+
+  .navigation ul {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing);
+
+    width: 100%;
+
+    list-style: none;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+  
+    margin: 0 auto;
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
+    width: 100%;
+    max-width: var(--max-width);
+  }
+
+  /** Fótur **/
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing);
+
+    padding: var(--spacing);
+    border-top: var(--border-large) solid var(--color-gold);
+
+    background-color: var(--color-dark);
+    color: var(--color-gold-light);
+
+    text-align: center;
+  }
+
+  .footer ul {
+    list-style: none;
+  }
+
+  /* Box! */
+
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2) var(--spacing);
+
+    margin-bottom: calc(var(--spacing) * 2);
+    width: 100%;
+  }
+
+  .boxes .box {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing);
+
+    padding: calc(var(--spacing) * 0.5);
+    min-height: 100px;
+
+    color: var(--color-dark);
+    background-color: var(--color-gold-light);
+    border-radius: 5px;
+  }
+
+  .boxes .box .title {
+    margin-bottom: calc(var(--spacing) * 0.5);
+    border-bottom: var(--border-small) solid var(--color-dark);
+  }
+
+  .boxes .box .content {
+    flex: 1;
+  }
+
+  .boxes .box img {
+
+    max-height: 400px;
+
+    object-fit: cover;
+    object-position: top center;
+  }
+
+
 }
 
+@media screen and (min-width: 451px) and (max-width: 1000px){
+    /* Layout */
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+  }
+
+  /** Haus **/
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing);
+
+    border-bottom: var(--border-large) solid var(--color-gold);
+
+    background-color: var(--color-dark);
+    color: var(--color-gold-light);
+  }
+
+  .header header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /** Valmynd **/
+
+  .navigation {
+    padding: var(--spacing);
+    width: 100%;
+
+    background-color: var(--color-light);
+    color: var(--color-dark);
+  }
+
+  .navigation ul {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing);
+
+    width: 100%;
+
+    list-style: none;
+  }
+
+  /** Meginmál **/
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+
+    margin: 0 auto;
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
+    width: 100%;
+    max-width: var(--max-width);
+  }
+
+  /** Fótur **/
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing);
+
+    padding: var(--spacing);
+    border-top: var(--border-large) solid var(--color-gold);
+
+    background-color: var(--color-dark);
+    color: var(--color-gold-light);
+
+    text-align: center;
+  }
+
+  .footer ul {
+    list-style: none;
+  }
+
+  /* Box! */
+
+  .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing) * 2) var(--spacing);
+
+    margin-bottom: calc(var(--spacing) * 2);
+    width: 100%;
+  }
+
+  .boxes .box {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing);
+
+    padding: calc(var(--spacing) * 0.5);
+    width: calc(50% - var(--spacing) * 0.5);
+    min-height: 100px;
+
+    color: var(--color-dark);
+    background-color: var(--color-gold-light);
+    border-radius: 5px;
+  }
+
+  .boxes .box .title {
+    margin-bottom: calc(var(--spacing) * 0.5);
+    border-bottom: var(--border-small) solid var(--color-dark);
+  }
+
+  .boxes .box .content {
+    flex: 1;
+  }
+
+  .boxes .box img {
+
+    max-height: 400px;
+
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .link {
+    margin-top: calc(var(--spacing) * 0.5);
+
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    border: 2px solid #2f0505;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    text-decoration: none;
+    border-radius: 10px;
+
+  }
+
+  .link:hover{
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    border-color: var(--color-dark);
+  }
+
+}
+@media screen and (min-width: 1001px){
+    /* Layout */
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    /** Haus **/
+  
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing);
+  
+      border-bottom: var(--border-large) solid var(--color-gold);
+  
+      background-color: var(--color-dark);
+      color: var(--color-gold-light);
+    }
+  
+    .header header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    /** Valmynd **/
+  
+    .navigation {
+      padding: var(--spacing);
+      width: 100%;
+  
+      background-color: var(--color-light);
+      color: var(--color-dark);
+    }
+  
+    .navigation ul {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing);
+  
+      width: 100%;
+  
+      list-style: none;
+    }
+  
+    /** Meginmál **/
+  
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing);
+  
+      margin: 0 auto;
+      padding-left: var(--spacing);
+      padding-right: var(--spacing);
+      width: 100%;
+      max-width: var(--max-width);
+    }
+  
+    /** Fótur **/
+  
+    .footer {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing);
+  
+      padding: var(--spacing);
+      border-top: var(--border-large) solid var(--color-gold);
+  
+      background-color: var(--color-dark);
+      color: var(--color-gold-light);
+  
+      text-align: center;
+    }
+  
+    .footer ul {
+      list-style: none;
+    }
+  
+    /* Box! */
+  
+    .boxes {
+      display: flex;
+      flex-direction: row;
+      gap: calc(var(--spacing) * 2) var(--spacing);
+  
+      margin-bottom: calc(var(--spacing) * 2);
+      width: 100%;
+    }
+  
+    .boxes .box {
+      display: flex;
+      flex-direction: column;
+  
+      gap: var(--spacing);
+  
+      padding: calc(var(--spacing) * 0.5);
+      width: calc(50% - var(--spacing) * 0.5);
+      min-height: 100px;
+  
+      color: var(--color-dark);
+      background-color: var(--color-gold-light);
+      border-radius: 5px;
+    }
+  
+    .boxes .box .title {
+      margin-bottom: calc(var(--spacing) * 0.5);
+      border-bottom: var(--border-small) solid var(--color-dark);
+    }
+  
+    .boxes .box .content {
+      flex: 1;
+    }
+  
+    .boxes .box img {
+  
+      max-height: 400px;
+  
+      object-fit: cover;
+      object-position: top center;
+    }
+  
+    .link {
+      margin-top: calc(var(--spacing) * 0.5);
+  
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      border: 2px solid #2f0505;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      text-decoration: none;
+      border-radius: 10px;
+  
+    }
+  
+    .link:hover{
+      background-color: var(--color-gold);
+      color: var(--color-dark);
+      border-color: var(--color-dark);
+    }
+}
 
 
 /* Opnunartími */
@@ -282,6 +588,7 @@ table {
 table th,
 table td {
   padding: calc(var(--spacing) * 0.5);
+  text-align: left;
 }
 
 table tbody tr:nth-child(2n + 1) {
@@ -291,31 +598,3 @@ table tbody tr:nth-child(2n + 1) {
 
 /* Pöntunarform */
 
-fieldset {
-  border: var(--border-small) solid var(--color-dark);
-}
-
-fieldset legend {
-  font-weight: bold;
-}
-
-fieldset div label {
-  display: flex;
-  flex-direction: column;
-}
-
-fieldset input,
-fieldset select,
-fieldset textarea {
-  padding: calc(var(--spacing) * 0.5);
-}
-
-fieldset .checkbox label {
-  flex-direction: row;
-  gap: calc(var(--spacing) * 0.5);
-}
-
-form button {
-  padding: calc(var(--spacing) * 0.25);
-  border-radius: var(--border-radius);
-}
