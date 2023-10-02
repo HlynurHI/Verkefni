@@ -178,6 +178,7 @@ img {
 
 .navigation {
   display: flex;
+  flex-wrap: wrap;
   padding: var(--spacing);
   width: 100%;
 
@@ -187,6 +188,7 @@ img {
 
 .navigation ul {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing);
 
@@ -319,6 +321,11 @@ fieldset input,
 fieldset select,
 fieldset textarea {
   padding: calc(var(--spacing) * 0.5);
+  width: 100%;
+}
+
+.checkbox input{
+  width: var(--spacing);
 }
 
 fieldset .checkbox label {
@@ -333,10 +340,6 @@ form button {
 
 
 @media (max-width: 500px){
-  .boxes {
-    display: flex;
-    flex-direction: column;
-  }
   .boxes .box{
   width: 100%;
   }
