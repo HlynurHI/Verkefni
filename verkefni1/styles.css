@@ -1,5 +1,5 @@
 body { 
-    background-image: url(./img/mynd.jpg);
+    background-image: url("./img/mynd.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
